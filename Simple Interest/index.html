@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="amt" type="text" placeholder="Enter The Principle Amount"><br></br>
+  <input id="rt" type="text" placeholder="Enter The Rate Of Interest"><br></br>
+  <input  id="yr" type="text" placeholder="Enter The Time Period"><br></br>
+  <button type="submit" onclick="intcnt()">Submit</button><br></br>
+  <div id="result"></div>
+</body>
+<script>
+   
+
+  
+  async function intcnt(){
+    const a=document.getElementById("amt").value;
+    const b=document.getElementById("rt").value
+    const c= document.getElementById("yr").value
+      
+
+    const response = await fetch("http://localhost:3005/home?amount=" +a +"&rate="+ b +"&year="+c)
+    const ans= await response.text();
+    document.getElementById("result").innerHTML=ans;
+  }
+
+
+</script>
+</html>
